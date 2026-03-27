@@ -1,0 +1,10 @@
+export interface Course {
+  id: number;
+  title: string;
+  instructor: string;
+  price: number;
+  seats: number;
+  imageUrl: string;
+  catId: number;
+ 
+}
