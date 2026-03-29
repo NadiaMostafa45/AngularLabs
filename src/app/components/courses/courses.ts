@@ -1,16 +1,19 @@
 import { Category } from './../../models/category';
-import { NgClass } from '@angular/common';
+import { CommonModule, NgClass } from '@angular/common';
 import { Component } from '@angular/core';
 import { Course } from '../../models/course';
 import { FormsModule } from '@angular/forms';
+import { DiscountPipe } from '../../pipes/discount-pipe';
+import { DisableAfterClick } from '../../directives/disable-after-click';
 @Component({
   selector: 'app-courses',
-  imports: [NgClass, FormsModule],
+  imports: [NgClass ,CommonModule, FormsModule, DiscountPipe, DisableAfterClick],
   templateUrl: './courses.html',
   styleUrl: './courses.css',
 })
 export class Courses {
 selectCategoryId:number=0;
+discountValue:number=10;
   categories: Category[] = [
     { id: 1, name: 'Programming' },
     { id: 2, name: 'Design' },

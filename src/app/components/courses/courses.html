@@ -24,14 +24,14 @@
 
             <p  [ngClass]="{ 'text-danger': course.seats === 0 }"  class="card-text  mb-1">Instructor: {{ course.instructor }}</p>
 
-            <p class="card-text fw-bold text-primary">${{ course.price }}</p>
+            <p class="card-text fw-bold text-primary">${{ course.price | discount:30 }}</p>
             @if(course.seats===0){
                 <p   class="card-text text-danger">course is full</p>
             }
 
             <p class="card-text">Seats: {{ course.seats }}</p>
             <button class="btn btn-danger m-4 " (click)="decreaseSeats(course)">decrease by 1</button>
-            <button [disabled]="course.seats === 0" class="btn btn-primary mt-auto">Register</button>
+            <button appDisableAfterClick [disabled]="course.seats === 0" class="btn btn-primary mt-auto">Register</button>
           </div>
         </div>
       </div>
